@@ -107,7 +107,7 @@ git remote
 查看当前本地仓库是否有远程仓库，如果有，那么它的远程仓库是什么 
 没有的话，回车后就是一个空的
 
-git remote add origin+远程仓库的地址    
+git remote add origin+远程仓库的地址   
 给本地仓库增加一个远程仓库
 origin 原有的，本地的 
 origin+远程仓库的地址作用就是本地仓库和远程仓库的地址进行一个关联    
@@ -126,6 +126,11 @@ git push -u origin master命令理解
 origin 是远程仓库的别名
 master是新建的远程分支名称
 https://blog.csdn.net/ITxiaofeixiang/article/details/112186581?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.control&depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.control
+
+出现提示以下文字 如果已添加key就输入yes
+The authenticity of host 'github.com (20.205.243.166)' can't be established.
+ECDSA key fingerprint is SHA256:p2QAMXNIC1TJYWeIOttrVc98/R1BUFWu3/LiyKgUfQM.
+Are you sure you want to continue connecting (yes/no)? 
 
 
 

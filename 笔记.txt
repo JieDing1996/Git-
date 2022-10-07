@@ -97,6 +97,8 @@ git tag -d 标签名称 这是删除标签
 vim .gitignore  创建.gitignore文件
 比如忽略.class文件 就在.gitignore文件写上*.class然后把.gitignore文件提交了
 
+.gitignore的格式规范
+https://blog.csdn.net/qq_37705525/article/details/125889962
 
 git bash 出现vim的时候怎么退出
 如果是输出状态，首先按Esc键退出输入du状态，然后按Shift+“;”，再

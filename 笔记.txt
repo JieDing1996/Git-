@@ -122,6 +122,8 @@ origin+远程仓库的地址作用就是本地仓库和远程仓库的地址进行一个关联
 git push -u origin master 将本地仓库的master分支推送到远程仓库master分支上
 
 
+解决码云仓库和github仓库代码同步推送和拉取
+https://www.jianshu.com/p/4f8c2af67201
 
 
 git push -u origin master命令理解

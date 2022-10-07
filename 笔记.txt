@@ -1,0 +1,177 @@
+起步：
+git init 把这个目录变成git可以管理的仓库
+
+如果没有看到.git是因为隐藏了。windows窗口有一个查看按钮，勾选一下隐藏项目。
+
+git add readme.txt 把文件添加到仓库
+
+git add .添加所有文件
+
+git commit -m “readme.txt commit” 把文件提交到仓库 后面是备注
+
+git status 查看当前仓库的状态
+
+git diff 查看修改的内容
+
+
+
+// 7.Git log和版本切换
+git log 查看提交历史
+
+
+// 简化日志信息
+git log --pretty=oneline 后面加上--pretty=oneline能使内容单行显示
+
+git reflog 查看命令历史
+
+git reset --hard HEAD^ 回到上一个版本
+git reset --hard HEAD^^ 回到之前两个版本
+
+git reset --hard commit-id 回退到commit-id对应的版本
+
+git rm   可删除工作区和提交区的文件
+如果文件已经添加到暂存区
+git rm -f 强行删除文件
+
+
+// 8.工作区 暂存区和提交区
+git checkout -- file01.txt 对当前修改不满，暂不添加到暂存区，就是不给出add提示，然后当前做过的修改就被撤销了
+
+
+添加到暂存区后，但是不想提交到提交区：
+https://www.cnblogs.com/xiaomaomao/p/13884892.html
+
+1.清空add命令向暂存区提交的关于file文件的修改 这个命令仅改变暂存区,并不改变工作区
+  git reset HEAD file01.txt   这里是因为只添加到暂存区并没有提交，所以就没有commit-id 这个命令是回到最新提交的版本状态，清空了暂存区（暂存区和提交区在一个部分）
+
+2.将修改拉回到工作区，把工作区修改的内容清空
+  git checkout -- file01.txt
+
+
+// 9.初识分支
+  
+分支： 
+git branch devname 创建dev分支
+
+git checkout devname 切换到dev分支
+
+git checkout -b devname 创建并切换分支 -b(branch)
+
+git branch 查看当前分支 会列出所有分支，当前分支前面会标一个*号
+
+git branch -a 查看远程分支
+
+git merge devname 把dev分支合并到当前分支上 前提是先切换到当前分支上
+
+合并后需要添加和提交
+
+git branch -d devname 删除指定dev分支 想要删除这个分支，你必须
+在其他分支上，因为你正在使用它
+
+如果在master上  devname已经做过添加提交 可以使用git branch -D devname进行强
+制性删除，如果devname已经合并好了，就可以正常删除
+
+
+// 12.Git config和配置别名
+git配置:
+git config -l  查看配置信息 l是list
+
+配置别名
+git status => git config --global alias.st status  以此类推
+
+
+// 13.打标签和忽略文件
+标签： 
+git tag v1不加上commitid就是给最新版本加上v1的标签
+
+git tag 查看所有标签
+
+git tag v0+commitid就是给特定提交加上标签
+
+git reset --hard v0  git reset --hard v1  这是使用方法
+
+git tag -d 标签名称 这是删除标签
+
+
+忽略文件：
+vim .gitignore  创建.gitignore文件
+比如忽略.class文件 就在.gitignore文件写上*.class然后把.gitignore文件提交了
+
+
+git bash 出现vim的时候怎么退出
+如果是输出状态，首先按Esc键退出输入du状态，然后按Shift+“;”，再
+输入q!或wq!（保存改动，wq!是保存文件的写入修改）退出。
+
+// 14.操作远程和本地仓库： 
+git remote
+查看当前本地仓库是否有远程仓库，如果有，那么它的远程仓库是什么 
+没有的话，回车后就是一个空的
+
+git remote add origin+远程仓库的地址    
+给本地仓库增加一个远程仓库
+origin 原有的，本地的 
+origin+远程仓库的地址作用就是本地仓库和远程仓库的地址进行一个关联    
+
+例子：git remote add origin git@github.com:JieDing1996/仓库名称.git
+
+然后再git remote  =>origin 就有了关联
+
+可以推送代码到远程仓库了：
+git push -u origin master 将本地仓库的master分支推送到远程仓库master分支上
+
+
+
+
+git push -u origin master命令理解
+origin 是远程仓库的别名
+master是新建的远程分支名称
+https://blog.csdn.net/ITxiaofeixiang/article/details/112186581?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.control&depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.control
+
+
+
+
+Please make sure you have the correct access rights
+and the repository exists.
+推拉代码需要权限：
+
+本地生成一个ssh key
+
+查看C:\Users\Tommy9527\.ssh有没有.ssh这个文件夹
+没有的话 执行ssh-keygen -t rsa -C "1169354502@qq.com"  然后一路敲回车
+
+出现问题：ssh-keygen-t: command not found
+  
+解决方法：
+
+1.需要配置路径的方法
+配置git环境变量 目的是使用dos窗口来运行 具体配置方法可参考JAVA_HOME配置
+https://blog.csdn.net/weixin_43888891/article/details/112429980
+
+2.不需要配置路径的方法
+直接进入ssh-keygen.exe所在的文件夹cd C:\Software\Git\usr\bin
+然后再输入ssh-keygen -t rsa -C "1169354502@qq.com"
+
+
+复制自动生成的id_rsa.pub文件里的内容，然后添加到ssh key  本机就可以传代码了
+
+
+切换到master合并其他分支然后 git push -u origin master  
+第二次使用不需要加-u git push origin master
+其实是因为云仓库已经有这个分支了，所有就不需要加上-u，只有第一次没有这个分支时才需要加上-u
+
+也可以推送其他分支git push -u origin dev_zhang
+
+
+
+新成员xiaowang拉代码 先进入xiaowang文件夹
+clone克隆操作
+前提是：sshkey也要添加完成 本机执行ssh-keygen -t rsa -C "1169354502@qq.com"
+然后github再添加SSH KEY
+git clone git@github.com:JieDing1996/gitfile01.git
+
+
+当远程仓库的版本内容与本地的不一致，需要先git pull(后面不加任何东西)把远程仓库的内容
+拉下来到最新版本才行，有冲突需要手动解决，然后再添加提交，最后再git push
+
+git push -u origin login推送本地分支到云端分支
+

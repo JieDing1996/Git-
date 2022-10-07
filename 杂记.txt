@@ -1,0 +1,84 @@
+git bash无法换行 按q退出
+
+报错：src refspec main does not match any.failed to push some refs to
+解决方法：
+git commit -m"chus"
+
+
+git push时要你输入密码的问题
+就是你的github账号的邮箱和密码
+这些是自己配置的
+git config --global user.name "Tommy"
+git config --global user.email "1169354502@qq.com"
+
+git config --global --unset http.proxy
+报错：Failed to connect to github.com port 443: Timed out
+原因：网络使用了代理
+解决方法：git config --global --unset http.proxy
+
+课程地址:
+https://ke.qq.com/course/282167#term_id=100334123
+
+分布式控制系统 git 
+mkdir 创建文件
+
+cd 跳转
+
+pwd 查看当前目录  ll查看文件
+
+git bash就是一个像终端一样的命令行工具
+
+
+git push -u origin master -u参数git不但会把本地的master分支推送到远程新的master分支， 
+还会把本地的master分支和远程的master分支关联起来。
+
+git push origin master 此后，每次本地提交后，只要有必要，就可以使用命令git push origin master推送最新修改；
+
+
+git push origin 把分支推到远程分支
+
+git remote 查看远程库的信息
+
+git remote -v 显示更详细的信息
+
+git push origin master 推送到远程分支，本地新建的分支，如果不推送到远程，其他人是不可见的；如果推送失败，先用git pull 抓取远程新的提交。
+
+git checkout -b branch-name origin/branch-name 在本地创建和远程分支对应的分支
+
+git branch –set-upstream branch-name origin/branch-name在本地创建和远程分支对应的分支的链接。从远程抓取分支，使用git pull，如果有冲突，要先处理冲突。
+
+git log –graph 查看分支合并图 
+
+git show 查看说明文字
+
+git ag -a v0.1 -m”version 0.1” commit_id -a:指定标签名 -m 指定说明文字
+
+git push origin 推送本地标签到远程
+
+git push origin –tags 可以推送全部未推送的本地标签到远程
+
+
+如果要删除远程标签： 
+1.先删除本地标签git tag -d 
+2.git push origin :refs/tags/ 删除远程标签
+
+自定义git
+
+git config –global color.ui true 让git显示颜色
+
+删除远程分支 
+git branch -r -d origin/branch-name 这个就可以删除
+
+git push origin :branch-name
+
+git pull origin dev:dev 把远程分支 拉取到本地dev分支
+
+git merge –no–ff -m “merge with no-ff” dev –no–ff表示禁用Fast forward；-m：把commit描述添加进去 
+加上–no-ff参数就可以用普通模式合并，合并后的历史有分支，能看出来曾经做过合并，而fast forward合并就看不出来曾经做过合并。
+
+git stash 可以把当前的工作内容存储到stash里面 
+git stash apply 恢复内容 但并不删除stash里的缓存内容 
+git stash drop 删除stash里面的内容 
+git stash pop 恢复的同时把stash里的内容也删除 
+git stash list 查看 
+git stash apply stash@{0}恢复指定的内容

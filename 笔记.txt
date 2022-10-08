@@ -133,6 +133,8 @@ git push origin与git push -u origin master的区别
 // https://blog.csdn.net/qq_15899635/article/details/88421585
 git push -u origin master 上面命令将本地的master分支推送到origin主机，同时指定origin为默认主机，后面就可以不加任何参数使用git push了。
 
+不带任何参数的git push，默认只推送当前分支
+
 出现提示以下文字 如果已添加key就输入yes
 The authenticity of host 'github.com (20.205.243.166)' can't be established.
 ECDSA key fingerprint is SHA256:p2QAMXNIC1TJYWeIOttrVc98/R1BUFWu3/LiyKgUfQM.

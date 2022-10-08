@@ -1,3 +1,5 @@
+// 菜鸟教程地址 https://www.runoob.com/git/git-remote.html
+
 起步：
 git init 把这个目录变成git可以管理的仓库
 
@@ -127,7 +129,7 @@ https://www.jianshu.com/p/4f8c2af67201
 
 
 git push -u origin master命令理解
-origin 是远程仓库的别名
+origin 是远程仓库的别名 这里的origin区别于git remote add origin的origin
 master是新建的远程分支名称
 https://blog.csdn.net/ITxiaofeixiang/article/details/112186581?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.control&depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.control
 
